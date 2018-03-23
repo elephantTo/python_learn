@@ -1,0 +1,17 @@
+git 
+1.git status
+2.git add 
+3.git reset
+4.git commit
+5.git push
+6.git pull
+
+vim
+1.vim filename
+2.shitf+esc+: -> wq!
+3.i
+
+linux
+1.cd filename
+2.rm filename
+
