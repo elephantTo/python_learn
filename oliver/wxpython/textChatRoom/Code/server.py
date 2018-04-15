@@ -29,6 +29,7 @@ class ChatServer(asyncore.dispatcher):
 
     def handle_accept(self):
         conn, addr = self.accept()
+        print str(conn)
         ChatSession(self, conn)
 
 class ChatSession(asynchat.async_chat):
