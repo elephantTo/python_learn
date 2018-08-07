@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+{#DTL是不支持中括号的#}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        body{
+            background: pink;
+        }
+    </style>
+</head>
+<body>
+    {% if hero in LOL %}
+        <p>"存在"</p>
+    {% elif hero == "oliver.he" %}
+        <p>"你是管理员"</p>
+    {% else %}
+        <p>"不存在"</p>
+    {% endif %}
+    <p>-----------------------------------------</p>
+    {% for a in LOL %}
+        <p>{{ a }}</p>
+    {% endfor %}
+    <p>-----------------------------------------</p>
+    {% for a in LOL reversed%}
+        <p>{{ a }}</p>
+    {% endfor %}
+    <p>-----------------------------------------</p>
+{#    样式#}
+    <ul>
+    {% for key,value in hobby.items %}
+        <li>{{ key }}{{ value }}</li>
+    {% endfor %}
+    </ul>
+    <p>-----------------------------------------</p>
+    {% for key in hobby.keys %}
+        <p>{{ key }}</p>
+    {% endfor %}
+    <p>-----------------------------------------</p>
+    {% for value in hobby.values %}
+        <p>{{ value }}</p>
+{#        如果列表为空，走empty#}
+    {% empty %}
+    {% endfor %}
+    <p>-----------------------------------------</p>
+    {% for foo in hobby %}
+        <p>{{ forloop }}</p>
+{#        如果是多级嵌套，这个是上一级循环的属性#}
+        <p>{{ forloo.parentloop }}</p>
+    {% endfor %}
+    <p>-----------------------------------------</p>
+    <table>
+        <thread>
+            <tr>
+                <td>序号</td>
+                <td>书名</td>
+                <td>作者</td>
+                <td>价格</td>
+            </tr>
+        </thread>
+        <tbody>
+            {% for foo in book %}
+                {% if forloop.first %}
+                    <tr style="background: bisque">
+                {% elif forloop.last %}
+                    <tr style="background: aquamarine">
+                {% else %}
+                    <tr>
+                {%  endif %}
+                        <td>{{ forloop.counter }}</td>
+                        <td>{{ foo.name }}</td>
+                        <td>{{ foo.author }}</td>
+                        <td>{{ foo.price }}</td>
+                    </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</body>
+</html>

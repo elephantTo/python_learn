@@ -1,0 +1,19 @@
+{#{% load static %}通过配置builtins可以不手动去laod#}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" href="{% static 'djangoTemplate/mstar.css' %}">
+</head>
+<body>
+{#这样子做有缺点，假如地址变了，就要改了#}
+<img src="/static/mstar.jpeg" alt="">
+{#这样子会在static文件夹下搜索#}
+{#<img src="{% static 'mstar.jpeg' %}" alt="">#}
+{##假如1APP想要调用2App的logo.jpg，但是3App里面也有logo.jpg，这样子会混淆#}
+{# 建议每个Static加上自己app的文件夹#}
+<img src="{% static 'djangoTemplate/mstar.jpeg' %}" alt="">
+<img src="{% static 'logo.jpg' %}" alt="">
+</body>
+</html>

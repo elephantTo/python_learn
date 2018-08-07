@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<header>
+    <ul>
+        <li><a href="{% url 'inherit' %}">首页</a></li>
+        <li><a href="{% url 'inherit_company' %}">公司</a></li>
+        <li><a href="{% url 'inherit_school' %}">校园</a></li>
+        <li>{{ username }}</li>
+    </ul>
+</header>
+<div class="content">
+{% block content %}
+{#    会干掉父模板的内容，是覆盖，不是追加#}
+    我是父模板中的内容
+{% endblock %}
+</div>
+<footer>
+    这是footer部分
+</footer>
+</body>
+</html>

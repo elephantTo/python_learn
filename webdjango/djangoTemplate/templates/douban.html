@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        .nav{
+            overflow: hidden;
+        }
+        .nav li {
+            float: left;
+            list-style: none;
+            margin: 0 20px;
+        }
+    </style>
+</head>
+<body>
+    <ul class="nav">
+        <li><a href="">首页</a></li>
+        <li><a href="{% url 'douban_book' %}">读书</a></li>
+        <li><a href="{% url 'douban_movie' %}">电影</a></li>
+        <li><a href="{% url 'douban_go' %}">同程</a></li>
+        <li><a href="{% url 'douban_book_detail' book_id=1000 %}">最火的一篇文章</a></li>
+        <li><a href="{% url 'douban_login' %}?next=/">登录</a></li>
+    </ul>
+</body>
+</html>

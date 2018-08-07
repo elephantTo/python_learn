@@ -1,0 +1,12 @@
+{% extends 'base.html' %}
+{% block content %}
+    <p>书名:{{ book.1 }}</p>
+    <p>作者:{{ book.2 }}</p>
+{#    #这样子直接添加按钮是不会有作用的，我们必须要把按钮放在表单当中#}
+{#    #<input type="submit" value="删除图书">#}
+{#    #action是指自己这个url#}
+    <form action="{% url "deleteBook" %}" method="post">
+        <input type="hidden" name="book_id" value="{{ book.0 }}">
+        <input type="submit" value="删除图书">
+    </form>
+{% endblock %}
